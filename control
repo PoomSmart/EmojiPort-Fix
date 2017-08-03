@@ -1,11 +1,12 @@
-Package: com.ps.emoji10fix
-Name: Emoji10 (iOS 8.3-8.4)
+Package: com.ps.emojiportfix
+Name: EmojiPort (iOS 8.3-8.4)
 Depends: mobilesubstrate, firmware (>= 8.3), firmware (<< 9.0), com.ps.emojiattributes, com.ps.emojilocalization, com.ps.emojiresources, com.ps.emojilibrary
-Conflicts: org.thebigboss.emoji83plus, com.ps.emoji9fix
+Conflicts: org.thebigboss.emoji83plus
+Upgrades: com.ps.emoji9fix, com.ps.emoji10fix
 Version: 1.0.0
 Architecture: iphoneos-arm
 Description: Latest emojis for iOS 8.3-8.4
 Maintainer: PoomSmart
 Author: PoomSmart
 Section: Tweaks
-Depiction: https://poomsmart.github.io/repo/emoji10fix/index.html
+Depiction: https://poomsmart.github.io/repo/emojiportfix/index.html
