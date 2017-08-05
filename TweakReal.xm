@@ -80,6 +80,10 @@
         MSHookIvar<CGSize>(self, "_fakeEmojiKeySize") = CGSizeMake(64.0, 64.0);
     } else if (keyboardWidth >= 768.0) {
         MSHookIvar<CGFloat>(self, "_categorySelectedCirPadding") = 4.0;
+    } else if (keyboardWidth >= 736.0) {
+        MSHookIvar<CGFloat>(self, "_categorySelectedCirPadding") = 34.0 / 3.0;
+        MSHookIvar<CGFloat>(self, "_categorySelectedCirWidth") = 30.0;
+        MSHookIvar<CGFloat>(self, "_scrubViewTopPadding") = 5.0;
     } else if (keyboardWidth >= 667.0) {
         MSHookIvar<CGFloat>(self, "_categorySelectedCirWidth") = 32.0;
         MSHookIvar<CGFloat>(self, "_categorySelectedCirPadding") = 7.0;
