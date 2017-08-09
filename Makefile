@@ -1,4 +1,4 @@
-PACKAGE_VERSION = 1.5.9
+PACKAGE_VERSION = 1.5.10
 
 ifeq ($(SIMULATOR),1)
 	TARGET = simulator:clang:latest:8.0
@@ -11,7 +11,7 @@ include $(THEOS)/makefiles/common.mk
 
 LIBRARY_NAME = Emoji10FixReal
 Emoji10FixReal_FILES = TweakReal.xm
-Emoji10FixReal_INSTALL_PATH = /Library/Application Support/Emoji10Fix
+Emoji10FixReal_INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries/Emoji10Fix
 Emoji10FixReal_EXTRA_FRAMEWORKS = CydiaSubstrate
 Emoji10FixReal_LIBRARIES = EmojiLibrary
 Emoji10FixReal_USE_SUBSTRATE = 1
