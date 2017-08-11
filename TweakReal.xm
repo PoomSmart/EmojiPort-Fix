@@ -7,7 +7,7 @@
     return CATEGORIES_COUNT;
 }
 
-+ (UIKeyboardEmojiCategory *)categoryForType:(NSInteger)categoryType {
++ (UIKeyboardEmojiCategory *)categoryForType:(PSEmojiCategory)categoryType {
     NSArray <UIKeyboardEmojiCategory *> *categories = [self categories];
     UIKeyboardEmojiCategory *categoryForType = categories[categoryType];
     NSArray <UIKeyboardEmoji *> *emojiForType = categoryForType.emoji;
@@ -15,36 +15,36 @@
         return categoryForType;
     NSArray <NSString *> *emojiArray = nil;
     switch (categoryType) {
-        case 0: {
-            NSMutableArray *recents = [self emojiRecentsFromPreferences];
+        case IDXPSEmojiCategoryRecent: {
+            NSMutableArray <UIKeyboardEmoji *> *recents = [self emojiRecentsFromPreferences];
             if (recents) {
                 categoryForType.emoji = recents;
                 return categoryForType;
             }
             break;
         }
-        case 1:
+        case IDXPSEmojiCategoryPeople:
             emojiArray = [PSEmojiUtilities PeopleEmoji];
             break;
-        case 2:
+        case IDXPSEmojiCategoryNature:
             emojiArray = [PSEmojiUtilities NatureEmoji];
             break;
-        case 3:
+        case IDXPSEmojiCategoryFoodAndDrink:
             emojiArray = [PSEmojiUtilities FoodAndDrinkEmoji];
             break;
-        case 4:
+        case IDXPSEmojiCategoryActivity:
             emojiArray = [PSEmojiUtilities ActivityEmoji];
             break;
-        case 5:
+        case IDXPSEmojiCategoryTravelAndPlaces:
             emojiArray = [PSEmojiUtilities TravelAndPlacesEmoji];
             break;
-        case 6:
+        case IDXPSEmojiCategoryObjects:
             emojiArray = [PSEmojiUtilities ObjectsEmoji];
             break;
-        case 7:
+        case IDXPSEmojiCategorySymbols:
             emojiArray = [PSEmojiUtilities SymbolsEmoji];
             break;
-        case 8:
+        case IDXPSEmojiCategoryFlags:
             emojiArray = [PSEmojiUtilities FlagsEmoji];
             break;
     }
