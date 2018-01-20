@@ -1,5 +1,6 @@
 #import "../PS.h"
 #import "../EmojiLibrary/PSEmojiUtilities.h"
+#import <UIKit/UIKBScreenTraits.h>
 
 %hook UIKeyboardEmojiCategory
 
