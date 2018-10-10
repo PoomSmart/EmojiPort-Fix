@@ -66,7 +66,7 @@
 
 %hook UIKeyboardEmojiGraphicsTraits
 
-- (id)initWithScreenTrait: (UIKBScreenTraits *)trait {
+- (id)initWithScreenTrait:(UIKBScreenTraits *)trait {
     self = %orig;
     CGFloat keyboardWidth = trait.keyboardWidth;
     if (keyboardWidth >= 1024.0) {
@@ -119,7 +119,7 @@
 
 %hook UIKeyboardEmojiSplitCategoryPicker
 
-- (NSString *)titleForRow: (NSInteger)row {
+- (NSString *)titleForRow:(NSInteger)row {
     return [NSClassFromString(@"UIKeyboardEmojiCategory") displayName:row];
 }
 
@@ -127,7 +127,7 @@
 
 %hook UIKeyboardEmojiCollectionInputView
 
-- (UIKeyboardEmojiCollectionViewCell *)collectionView: (UICollectionView *)collectionView_ cellForItemAtIndexPath: (NSIndexPath *)indexPath {
+- (UIKeyboardEmojiCollectionViewCell *)collectionView:(UICollectionView *)collectionView_ cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     return [PSEmojiUtilities collectionView:collectionView_ cellForItemAtIndexPath:indexPath inputView:self];
 }
 
@@ -148,7 +148,7 @@ BOOL overrideNewVariant = NO;
 
 %hook UIKBTree
 
-- (void)setRepresentedString: (NSString *)string {
+- (void)setRepresentedString:(NSString *)string {
     %orig([PSEmojiUtilities overrideKBTreeEmoji:string overrideNewVariant:overrideNewVariant]);
 }
 
