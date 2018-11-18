@@ -125,6 +125,15 @@
 
 %end
 
+%hook UIKeyboardEmojiCollectionViewCell
+
+- (void)setEmojiFontSize:(NSInteger)fontSize {
+    if (fontSize != self.emojiFontSize)
+        %orig;
+}
+
+%end
+
 %hook UIKeyboardEmojiCollectionInputView
 
 - (UIKeyboardEmojiCollectionViewCell *)collectionView:(UICollectionView *)collectionView_ cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -149,7 +158,7 @@ BOOL overrideNewVariant = NO;
 %hook UIKBTree
 
 - (void)setRepresentedString:(NSString *)string {
-    %orig([PSEmojiUtilities overrideKBTreeEmoji:string overrideNewVariant:overrideNewVariant]);
+    %orig(overrideNewVariant ? [PSEmojiUtilities overrideKBTreeEmoji:string] : string);
 }
 
 %end
