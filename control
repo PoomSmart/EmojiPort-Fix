@@ -1,6 +1,6 @@
 Package: com.ps.emojiportfix
 Name: EmojiPort (iOS 8.3-8.4)
-Depends: mobilesubstrate, firmware (>= 8.3), firmware (<< 9.0), com.ps.emojiattributes, com.ps.emojilocalization, com.ps.emojiresources, com.ps.emojilibrary (>= 1.0.17)
+Depends: firmware (>= 8.3), firmware (<< 9.0), com.ps.emojiattributes (>= 1.3.23~b6), com.ps.emojilocalization, com.ps.emojiresources, com.ps.emojilibrary (>= 1.0.19~b4)
 Conflicts: org.thebigboss.emoji83plus, com.ps.emoji9fix, com.ps.emoji10fix
 Version: 1.0.0
 Architecture: iphoneos-arm

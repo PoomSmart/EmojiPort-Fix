@@ -1,6 +1,7 @@
 #import "../PS.h"
 #import "../EmojiLibrary/PSEmojiUtilities.h"
 #import <UIKit/UIKBScreenTraits.h>
+#import <UIKit/UIKBTree.h>
 
 %hook UIKeyboardEmojiCategory
 
@@ -144,29 +145,4 @@
     return [PSEmojiUtilities emojiBaseString:emojiString];
 }
 
-BOOL overrideNewVariant = NO;
-
-- (id)subTreeHitTest:(CGPoint)point {
-    overrideNewVariant = YES;
-    id r = %orig;
-    overrideNewVariant = NO;
-    return r;
-}
-
 %end
-
-%hook UIKBTree
-
-- (void)setRepresentedString:(NSString *)string {
-    %orig(overrideNewVariant ? [PSEmojiUtilities overrideKBTreeEmoji:string] : string);
-}
-
-%end
-
-%ctor {
-#if TARGET_OS_SIMULATOR
-    dlopen("/opt/simject/EmojiAttributes.dylib", RTLD_LAZY);
-    dlopen("/opt/simject/EmojiLocalization.dylib", RTLD_LAZY);
-#endif
-    %init;
-}
